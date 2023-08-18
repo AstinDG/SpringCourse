@@ -1,7 +1,7 @@
-package com.astindg.dao;
+package com.astindg.library.dao;
 
-import com.astindg.models.Book;
-import com.astindg.models.Person;
+import com.astindg.library.models.Book;
+import com.astindg.library.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

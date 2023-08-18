@@ -1,2 +1,4 @@
 /.idea/
 /Library/Library.iml
+/Library/src/main/resources/database.properties
+/Library/target/

@@ -1,11 +1,11 @@
-package com.astindg.controllers;
+package com.astindg.library.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import com.astindg.dao.PersonDAO;
-import com.astindg.models.Person;
+import com.astindg.library.dao.PersonDAO;
+import com.astindg.library.models.Person;
 
 import javax.validation.Valid;
 

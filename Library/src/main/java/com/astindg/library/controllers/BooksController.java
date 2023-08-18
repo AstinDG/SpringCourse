@@ -1,9 +1,9 @@
-package com.astindg.controllers;
+package com.astindg.library.controllers;
 
-import com.astindg.dao.BookDAO;
-import com.astindg.dao.PersonDAO;
-import com.astindg.models.Book;
-import com.astindg.models.Person;
+import com.astindg.library.dao.BookDAO;
+import com.astindg.library.dao.PersonDAO;
+import com.astindg.library.models.Book;
+import com.astindg.library.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,14 +33,14 @@ public class BooksController {
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model, @ModelAttribute("person") Person person) {
-        model.addAttribute("books", bookDAO.show(id));
+        model.addAttribute("book", bookDAO.show(id));
         model.addAttribute("currentPerson", bookDAO.getPersonByBookId(id));
         model.addAttribute("people", personDAO.index());
         return "books/show";
     }
 
     @GetMapping("/new")
-    public String newBook(@ModelAttribute("books") Book book) {
+    public String newBook(@ModelAttribute("book") Book book) {
         return "books/new";
     }
 
@@ -55,12 +55,12 @@ public class BooksController {
 
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
-        model.addAttribute("books", bookDAO.show(id));
+        model.addAttribute("book", bookDAO.show(id));
         return "books/edit";
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("books") Book book, BindingResult bindingResult,
+    public String update(@ModelAttribute("book") Book book, BindingResult bindingResult,
                          @PathVariable("id") int id) {
         if (bindingResult.hasErrors()) {
             return "books/edit";

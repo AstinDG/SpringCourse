@@ -1,4 +1,4 @@
-package com.astindg.models;
+package com.astindg.library.models;
 
 import javax.validation.constraints.*;
 

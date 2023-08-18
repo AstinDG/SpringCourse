@@ -1,4 +1,4 @@
-package com.astindg.config;
+package com.astindg.library.config;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
