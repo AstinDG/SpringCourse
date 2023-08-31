@@ -2,3 +2,6 @@
 /Library/Library.iml
 /Library/src/main/resources/database.properties
 /Library/target/
+/OneToOne/OneToOne.iml
+/OneToOne/src/main/resources/hibernate.properties
+/OneToOne/target/
