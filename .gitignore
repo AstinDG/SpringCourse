@@ -5,3 +5,5 @@
 /OneToOne/OneToOne.iml
 /OneToOne/src/main/resources/hibernate.properties
 /OneToOne/target/
+/OneToMany/OneToMany.iml
+/OneToMany/src/main/resources/hibernate.properties
