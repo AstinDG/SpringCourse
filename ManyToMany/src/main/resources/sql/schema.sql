@@ -16,7 +16,3 @@ CREATE TABLE Actor_Movie(
     PRIMARY KEY(actor_id, movie_id)
 );
 
-DROP TABLE Actor_Movie;
-DROP TABLE Actor;
-DROP TABLE Movie;
-
