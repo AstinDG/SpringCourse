@@ -8,3 +8,6 @@
 /OneToMany/OneToMany.iml
 /OneToMany/src/main/resources/hibernate.properties
 /OneToMany/target/
+/ManyToMany/target/
+/ManyToMany/src/main/resources/hibernate.properties
+/ManyToMany/ManyToMany.iml
