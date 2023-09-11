@@ -11,3 +11,6 @@
 /ManyToMany/target/
 /ManyToMany/src/main/resources/hibernate.properties
 /ManyToMany/ManyToMany.iml
+/HibernateCrud/src/main/resources/hibernate.properties
+/HibernateCrud/target/
+/HibernateCrud/HibernateCrud.iml
