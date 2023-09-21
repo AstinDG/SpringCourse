@@ -7,3 +7,7 @@
 /ManyToMany/ManyToMany.iml
 /OneToMany/OneToMany.iml
 /OneToOne/OneToOne.iml
+OneToOne/src/main/resources/hibernate.properties
+/HibernateCrud/src/main/resources/hibernate.properties
+/OneToMany/src/main/resources/hibernate.properties
+/ManyToMany/src/main/resources/hibernate.properties
