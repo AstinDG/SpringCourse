@@ -28,7 +28,7 @@ public class BooksController {
     }
 
     @GetMapping()
-    public String index(Model model) {
+    public String index(Model model, @RequestParam(defaultValue = "0") int page) {
         List<Book> books = bookService.findAll();
         model.addAttribute("books", books);
         return "books/index";
@@ -40,6 +40,7 @@ public class BooksController {
         model.addAttribute("book", book);
         model.addAttribute("currentPerson", book.getPerson());
         model.addAttribute("people", personService.findAll());
+
 
         return "books/show";
     }
