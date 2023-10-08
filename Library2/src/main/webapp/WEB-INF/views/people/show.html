@@ -14,7 +14,7 @@
             <span style="font-weight: bolder;">Books: </span>
             <br>
             <p th:each="book : ${books}"
-               th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYear_release()} ">
+               th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYearRelease()} ">
             </p>
         </div>
 

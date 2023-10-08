@@ -5,11 +5,11 @@
         <title>Show book</title>
     </head>
     <body>
-        <p th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYear_release()}">VALUE</p>
+        <p th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYearRelease()}">VALUE</p>
 
         <div th:if="${currentPerson == null}">
             <span>The book is free. To whom should it be assigned?</span>
-            <form th:method="PATCH" th:action="@{/books/{id}/set(id=${book.getBook_id()})}">
+            <form th:method="PATCH" th:action="@{/books/{id}/set(id=${book.getBookId()})}">
                 <label for="person">Select person: </label>
                 <select th:object="${person}" th:field="*{person_id}" id="person">
                     <option th:each="person : ${people}" th:value="${person.getPerson_id()}"
@@ -28,10 +28,10 @@
         </div>
 
         <hr>
-        <form th:method="GET" th:action="@{/books/{id}/edit(id=${book.getBook_id()})}">
+        <form th:method="GET" th:action="@{/books/{id}/edit(id=${book.getBookId()})}">
             <input type="submit" value="Edit"/>
         </form>
-        <form th:method="DELETE" th:action="@{/books/{id}(id=${book.getBook_id()})}">
+        <form th:method="DELETE" th:action="@{/books/{id}(id=${book.getBookId()})}">
             <input type="submit" value="Delete"/>
         </form>
 

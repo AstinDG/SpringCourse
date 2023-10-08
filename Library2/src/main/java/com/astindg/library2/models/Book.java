@@ -12,7 +12,7 @@ public class Book {
     @Id
     @Column(name = "book_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int book_id;
+    private int bookId;
 
     @Column(name = "name")
     @Size(min = 1, max = 250, message = "Name should be between 1 and 250 characters")
@@ -25,7 +25,7 @@ public class Book {
     @Column(name = "year_release")
     @Min(value = 0, message = "Year of release should be greater than 0")
     @Max(value = 2500, message = "Year of release should be less than 2500")
-    private int year_release;
+    private int yearRelease;
 
     @ManyToOne
     @JoinColumn(name = "person", referencedColumnName = "person_id")
@@ -37,15 +37,15 @@ public class Book {
     public Book(String name, String author, int year_release) {
         this.name = name;
         this.author = author;
-        this.year_release = year_release;
+        this.yearRelease = year_release;
     }
 
-    public int getBook_id() {
-        return book_id;
+    public int getBookId() {
+        return bookId;
     }
 
-    public void setBook_id(int book_id) {
-        this.book_id = book_id;
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
     }
 
     public String getName() {
@@ -56,12 +56,12 @@ public class Book {
         this.name = name;
     }
 
-    public int getYear_release() {
-        return year_release;
+    public int getYearRelease() {
+        return yearRelease;
     }
 
-    public void setYear_release(int year_release) {
-        this.year_release = year_release;
+    public void setYearRelease(int yearRelease) {
+        this.yearRelease = yearRelease;
     }
 
     public String getAuthor() {
@@ -83,10 +83,10 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "book_id=" + book_id +
+                "book_id=" + bookId +
                 ", name='" + name + '\'' +
                 ", author='" + author + '\'' +
-                ", yearRelease=" + year_release +
+                ", yearRelease=" + yearRelease +
                 '}';
     }
 }

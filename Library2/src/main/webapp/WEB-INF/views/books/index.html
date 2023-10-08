@@ -8,6 +8,7 @@
               crossorigin="anonymous">
         <title>Books list</title>
         <style>
+
         a {
             color: inherit;
             text-decoration: inherit;
@@ -24,15 +25,38 @@
             display: flex;
             width: 50%;
             justify-content: space-between;
-            margin-left: 25%
+            margin-left: 25%;
+            margin-top: 15px;
         }
-
         </style>
     </head>
     <body>
         <div class="header">
             <h2>All books:</h2>
-            <a style="position:right" href="/books/new">Add new book</a>
+
+            <a style="position:right" href="/books/new" class="btn btn-outline-dark">Add new book</a>
+
+        </div>
+        <div>
+            <div class="text-center">
+                <span>Showing books # [[${startIndex}]] to [[${endIndex}]] of [[${totalItems}]]</span>
+            </div>
+            <div >
+                <nav th:if="${totalPages > 1}">
+                    <ul class="pagination justify-content-center"
+                        th:with="pageUrl = '/books?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&pageSize=' + ${pageSize} + '&page='">
+                        <li th:class="${page > 1 ? 'page-item' : 'page-item disabled'}">
+                            <a th:href="@{ ${pageUrl} + ${page-1} }" class="page-link text-light bg-dark">Previous</a>
+                        </li>
+                        <li th:each="number: ${#numbers.sequence(1,totalPages)}" th:class="${page != number ? 'page-item' : 'page-item disabled'}">
+                            <a th:text="${number}" th:href="@{ ${pageUrl} + ${number} }" class="page-link text-light bg-dark"></a>
+                        </li>
+                        <li th:class="${page < totalPages ? 'page-item' : 'page-item disabled'}">
+                            <a th:href="@{ ${pageUrl} + ${page+1} }" class="page-link text-light bg-dark">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
 
         <table class="table">
@@ -50,9 +74,10 @@
 
             <tr th:each="book : ${books}">
 
-                    <td><a th:href="@{/books/{id}(id=${book.getBook_id()})}"><span th:text="${book.getName()}"> Title </span></a></td>
-                    <td><span th:text="${book.getAuthor()}"> Author </span></td>
-                    <td><span th:text="${book.getYear_release()}"> Year release </span></td>
+                <td><a th:href="@{/books/{id}(id=${book.getBookId()})}"><span th:text="${book.getName()}"> Title </span></a>
+                </td>
+                <td><span th:text="${book.getAuthor()}"> Author </span></td>
+                <td><span th:text="${book.getYearRelease()}"> Year release </span></td>
             </tr>
 
             </tbody>
