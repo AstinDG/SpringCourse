@@ -14,7 +14,7 @@ public class Person {
     @Id
     @Column(name = "person_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int person_id;
+    private int personId;
 
     @Column(name = "name")
     @NotEmpty(message = "Name should not be empty")
@@ -40,12 +40,12 @@ public class Person {
         this.yearOfBirth = age;
     }
 
-    public int getPerson_id() {
-        return person_id;
+    public int getPersonId() {
+        return personId;
     }
 
-    public void setPerson_id(int person_id) {
-        this.person_id = person_id;
+    public void setPersonId(int personId) {
+        this.personId = personId;
     }
 
     public String getName() {
@@ -75,7 +75,7 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "person_id=" + person_id +
+                "person_id=" + personId +
                 ", name='" + name + '\'' +
                 ", yearOfBirth=" + yearOfBirth +
                 '}';
