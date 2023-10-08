@@ -4,8 +4,6 @@ import com.astindg.library2.models.Book;
 import com.astindg.library2.models.Person;
 import com.astindg.library2.services.BookService;
 import com.astindg.library2.services.PersonService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -21,7 +19,6 @@ public class BooksController {
 
     private final BookService bookService;
     private final PersonService personService;
-    private final Logger logger = LoggerFactory.getLogger(BooksController.class);
 
     @Autowired
     public BooksController(BookService bookService, PersonService personService) {
@@ -35,8 +32,6 @@ public class BooksController {
                         @RequestParam(defaultValue = "15") int pageSize,
                         @RequestParam(defaultValue = "bookId") String sortField,
                         @RequestParam(defaultValue = "ASC") String sortDirection) {
-
-        logger.info("index page is opened!");
 
         Page<Book> booksPage = bookService.findAll(page - 1, pageSize, sortField, sortDirection);
         int totalPages = booksPage.getTotalPages();
