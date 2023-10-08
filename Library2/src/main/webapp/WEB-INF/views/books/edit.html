@@ -6,7 +6,7 @@
     </head>
     <body>
 
-        <form th:method="PATCH" th:action="@{/books/{id}(id=${book.getBook_id()})}" th:object="${book}">
+        <form th:method="PATCH" th:action="@{/books/{id}(id=${book.getBookId()})}" th:object="${book}">
             <label for="name">Enter name: </label>
             <input type="text" th:field="*{name}" id="name"/>
             <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
@@ -16,9 +16,9 @@
             <div style="color:red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author Error
             </div>
             <br>
-            <label for="year_release">Enter year of release: </label>
-            <input type="text" th:field="*{year_release}" id="year_release"/>
-            <div style="color:red" th:if="${#fields.hasErrors('year_release')}" th:errors="*{year_release}">Year of Release Error
+            <label for="yearRelease">Enter year of release: </label>
+            <input type="text" th:field="*{yearRelease}" id="yearRelease"/>
+            <div style="color:red" th:if="${#fields.hasErrors('yearRelease')}" th:errors="*{yearRelease}">Year of Release Error
             </div>
             <br/>
             <br/>

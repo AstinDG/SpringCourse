@@ -4,7 +4,6 @@ import com.astindg.library2.models.Book;
 import com.astindg.library2.models.Person;
 import com.astindg.library2.repositories.PersonRepository;
 import org.hibernate.Hibernate;
-import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,7 +48,7 @@ public class PersonService {
 
     @Transactional
     public void update(Integer id, Person person){
-        person.setPerson_id(id);
+        person.setPersonId(id);
         personRepository.save(person);
     }
 
