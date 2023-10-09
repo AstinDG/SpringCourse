@@ -61,4 +61,11 @@ public class BookService {
         bookRepository.getOne(bookId).setPerson(null);
     }
 
+    public List<Book> searchBook(String searchPrompt) {
+        if (searchPrompt != null && (searchPrompt.isEmpty() || searchPrompt.isBlank())) {
+            return findAll();
+        }
+
+        return bookRepository.searchBook(searchPrompt);
+    }
 }
