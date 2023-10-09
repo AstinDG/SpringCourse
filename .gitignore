@@ -18,3 +18,4 @@
 /Library2/target/
 /Library2/Library2.iml
 /Library2/src/main/resources/hibernate.properties
+/Library2/src/main/resources/log4j2.properties

@@ -14,16 +14,16 @@
             <span style="font-weight: bolder;">Books: </span>
             <br>
             <p th:each="book : ${books}"
-               th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYear_release()} ">
+               th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYearRelease()} ">
             </p>
         </div>
 
         <hr>
 
-        <form th:method="GET" th:action="@{/people/{id}/edit(id=${person.getPerson_id()})}">
+        <form th:method="GET" th:action="@{/people/{id}/edit(id=${person.getPersonId()})}">
             <input type="submit" value="Edit"/>
         </form>
-        <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getPerson_id()})}">
+        <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getPersonId()})}">
             <input type="submit" value="Delete"/>
         </form>
 
