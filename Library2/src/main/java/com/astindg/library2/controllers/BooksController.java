@@ -12,6 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Collections;
+import java.util.List;
 
 @Controller
 @RequestMapping("/books")
@@ -109,5 +111,18 @@ public class BooksController {
     public String releaseBook(@PathVariable("id") int bookId) {
         bookService.releaseBook(bookId);
         return "redirect:/books/" + bookId;
+    }
+
+    //TODO make pageable
+    @GetMapping("/search")
+    public String searchBook(Model model, String prompt){
+        if(prompt.isEmpty()){
+            model.addAttribute("bookList", Collections.emptyList());
+            return "/books/search";
+        }
+
+        List<Book> bookList = bookService.searchBook(prompt);
+        model.addAttribute("bookList", bookList);
+        return "/books/search";
     }
 }
