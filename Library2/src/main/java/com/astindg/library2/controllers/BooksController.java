@@ -58,9 +58,9 @@ public class BooksController {
     public String show(@PathVariable("id") int id, Model model, @ModelAttribute("person") Person person) {
         Book book = bookService.findById(id);
         model.addAttribute("book", book);
+        model.addAttribute("requestedID", id);
         model.addAttribute("currentPerson", book.getPerson());
         model.addAttribute("people", personService.findAll());
-
 
         return "books/show";
     }
@@ -116,7 +116,7 @@ public class BooksController {
     //TODO make pageable
     @GetMapping("/search")
     public String searchBook(Model model, String prompt){
-        if(prompt.isEmpty()){
+        if(prompt != null && prompt.isEmpty()){
             model.addAttribute("bookList", Collections.emptyList());
             return "/books/search";
         }
