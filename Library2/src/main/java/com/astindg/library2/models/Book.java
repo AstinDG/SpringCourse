@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 @Entity
 @Table(name = "Book")
@@ -30,6 +32,10 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "person", referencedColumnName = "person_id")
     private Person person;
+
+    @Column(name = "time_of_assigning")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateOfAssigning;
 
     public Book() {
     }
@@ -76,8 +82,23 @@ public class Book {
         return person;
     }
 
+    public Date getDateOfAssigning() {
+        return dateOfAssigning;
+    }
+
+    public void setDateOfAssigning(Date dateOfAssigning) {
+        this.dateOfAssigning = dateOfAssigning;
+    }
+
     public void setPerson(Person person) {
+        this.dateOfAssigning = new Date();
         this.person = person;
+    }
+
+    public boolean hasExpired(int days) {
+        long diff = new Date().getTime() - this.dateOfAssigning.getTime();
+        long daysDiff = TimeUnit.MILLISECONDS.toDays(diff);
+        return daysDiff > days;
     }
 
     @Override

@@ -1,4 +1,5 @@
 package com.astindg.library2.controllers;
+import com.astindg.library2.models.Book;
 import com.astindg.library2.services.BookService;
 import com.astindg.library2.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("/people")
 public class PeopleController {
+
+    private static final int MAX_PERIOD_BORROWING_BOOK_IN_DAYS = 10;
 
     private final PersonService personService;
 
@@ -31,6 +34,7 @@ public class PeopleController {
     public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("person", personService.findById(id));
         model.addAttribute("books", personService.getBooksByPersonId(id));
+        model.addAttribute("maxDays", MAX_PERIOD_BORROWING_BOOK_IN_DAYS);
         return "people/show";
     }
 
