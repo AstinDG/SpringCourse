@@ -3,6 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <title>Show person</title>
+        <style>
+            .error {
+                color: red;
+            }
+
+        </style>
     </head>
     <body>
         <p th:text="${person.getName() + ', ' + person.getYearOfBirth()}">VALUE</p>
@@ -14,7 +20,8 @@
             <span style="font-weight: bolder;">Books: </span>
             <br>
             <p th:each="book : ${books}"
-               th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYearRelease()} ">
+               th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYearRelease()} "
+               th:class="${book.hasExpired(maxDays) ? 'book-list error' : 'book-list'}">
             </p>
         </div>
 
