@@ -19,3 +19,9 @@
 /Library2/Library2.iml
 /Library2/src/main/resources/hibernate.properties
 /Library2/src/main/resources/log4j2.properties
+/Library2Boot/.mvn/
+/Library2Boot/mvnw
+/Library2Boot/mvnw.cmd
+/Library2Boot/src/main/resources/application.properties
+/Library2Boot/Library2Boot.iml
+/Library2Boot/target/
